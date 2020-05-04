@@ -116,6 +116,121 @@
       margin-left: 8vw;
       margin-right: 10vw;
       }
+      /* The Modal (background) */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: black;
+  }
+
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 1200px;
+  }
+
+  /* The Close Button */
+  .close {
+    color: white;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    font-size: 35px;
+    font-weight: bold;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #999;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .mySlides {
+    display: none;
+  }
+
+  .cursor {
+    cursor: pointer;
+  }
+
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  img {
+    margin-bottom: -4px;
+  }
+
+  .caption-container {
+    text-align: center;
+    background-color: black;
+    padding: 2px 16px;
+    color: white;
+  }
+
+  .demo {
+    opacity: 0.6;
+  }
+
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+  img.hover-shadow {
+    transition: 0.3s;
+  }
+
+  .hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
 
 </style>
 
@@ -144,6 +259,7 @@
         For most of history, nature has played a vital role in shaping Chinese culture. Though difficult to imagine nowadays given the nation's infamous pollution, various aspects of the Chinese tradition and way of life, from agriculture and politics to philosophy and art, are rooted in the connection people had with nature. This harmonious relationship stems from the concept of 天人合一 (<i>tian ren he yi</i>), an old saying that roughly translates to "nature and humans joining together as one." As indicated by many early writings and artworks, it was under this premise that the Chinese considered themselves to be a part of the natural world, and thus behaved according to the laws of nature (Hou). This concept and how it has permeated into Chinese society are manifest in traditional landscape paintings, 山水画 (<i>shan shui hua</i>), from medieval dynasties.  This is particularly evident in the way natural elements, such as rivers and mountains, are portrayed as these monumental and awesome subjects of the composition instead of being relegated to the background, as is common in Western art. In contrast, people are seldom included in these paintings; and when they are, they're depicted as these minuscule beings that make up the larger, overall landscape. This juxtaposition emphasizes the idea that people are a part of nature and adds a humbling effect that imbues a sense of reverence for nature. In this way, depictions of the smallness and ephemerality of human beings relative to the immensity and permanence of nature through these paintings make our problems shrink, thus evoking a sense of tranquility often associated with the natural world. Consequently, 山水画 are also reflective of this tendency, common among Chinese literati, to turn to nature for physical and mental refuge especially in the wake of the chaos of dynastic collapse (“Landscape Painting in Chinese Art”).
       </p>
       <br>
+      <img src="FuZhouMts.jpg " width="50%">
     <h3 id="M">Reflection & Connection</h3>
       <p>
         In addition to landscapes, traditional paintings of more specific elements of nature, ones in which medieval literati have attached spiritual and symbolic meaning to, further conveys the reverence the Chinese had for the natural world. Mountains, for example, held sacred power since ancient times and was a representation of nature's vital energy (<i>qi 气</i>); this sense of power mountains have been attributed with further establish a sense of respect for such natural entities. Moreover, by "imbu[ing] a variety of plants and flowers with auspicious meaning and scholarly virtues" (“Contemplating Nature: Chinese and Korean Botanical Paintings”), poets and artists have created a way for people to see themselves reflected in nature and allow them to connect on a more personal level.
@@ -199,6 +315,7 @@
         <br>
         <p>Brunner, Betsy. (2017). Contemporary Environmental art in China: Portraying Progress, Politics, and Ecosystems. Environmental Communication. 1-12. 10.1080/17524032.2016.1269822. </p>
         <br>
+        <p>Bsirkia. “Xu Bing Phoenix.” <i>MASS MoCA</i>, massmoca.org/event/xu-bing-phoenix/.
       <p>“Contemplating Nature: Chinese and Korean Botanical Paintings.” <i>East Asian Art Program at Harvard University</i>, 2015,	<u>eaa.fas.harvard.edu/contemplating-nature-chinese-and-korean-botanical-paintings.</u></p>
         <br>
         <p>cunytv75. “Ancient Art Links - Chinese Landscape Paintings at the Metropolitan Museum (大都会博物馆中国山水画).” <i>Youtube</i>, 8 Jan. 2018, <u>https://www.youtube.com/watch?v=TIt0wBUdY5E</u></p>
@@ -263,6 +380,5 @@ for (i = 0; i < acc.length; i++) {
     }
   });
 }
-
 </script>
 </html>
