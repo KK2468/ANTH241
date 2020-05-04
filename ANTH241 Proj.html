@@ -15,8 +15,11 @@
 or alternatively, could also make image maps...nahhh-->
 
 <style>
+
   body{
     background-color: beige;
+    line-height: 1.5;
+    overflow-x: visible;
     }
 
   .scroll{
@@ -48,52 +51,193 @@ or alternatively, could also make image maps...nahhh-->
     color: grey;
     text-decoration: none;
     }
+    * { box-sizing: border-box;}
 
-    .dot {
-      height: 1.9vw;
-      width: 10vw;
-      background-color: black;
-      border-radius: 50%;
-      display: inline-block;
-      color: white;
-      font-size: 1.1vw;
-      cursor: grab;
-      padding: .3vw;
-      z-index: 99;
-      position: absolute;
-      background-position: top;
-      background-repeat: no-repeat;
-      background-size: contain;
-      }
+     h1,h2,h3,p {
+       font-weight: 300;
+       margin: 0 0 2.4rem 0;
+       }
 
+     h1,h2,h3 {
+       line-height: 1.3;
+     }
 
-      .tooltiptext {
-        visibility: hidden;
-        width: auto;
-        background-color: white;
-        color: black;
-        text-align: justify;
-        border-radius: 1%;
-        border: .1vw solid black;
-        padding: 2.5vw;
-        font-size: 1.25vw;
-        width:55vw;
-        height: 45vw;
-        text-align: justify;
-        /* Position the tooltip */
-        position: absolute;
-        z-index: 1;
-        bottom: 60%;
-        overflow-y: scroll;
-        }
+     a {
+       text-decoration: none;
+       color: inherit;
+       font-weight: 400;
+     }
+     /**
+     * Material Modal CSS
+     */
+     .modal {
+       will-change: visibility, opacity;
+       display: -webkit-box;
+       display: flex;
+       -webkit-box-align: center;
+             align-items: center;
+             -webkit-box-pack: center;
+             justify-content: center;
+             position: fixed;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             overflow-y: auto;
+             overflow-x: hidden;
+             z-index: 1000;
+             visibility: hidden;
+             opacity: 0;
+             -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+             -webkit-transition-delay: $modal-delay;
+             transition-delay: $modal-delay;
+             }
 
-      .dot:hover .tooltiptext {
-          visibility: visible;
-        }
+           .modal--active {
+             visibility: visible;
+             opacity: 1;
+             }
 
+           .modal--align-top {
+             -webkit-box-align: start;
+             align-items: flex-start;
+           }
 
+           .modal__bg {
+             background: rgb(0,0,0,.5)
+             }
 
+           .modal__dialog {
+             max-width: 75%;
+             padding: 1.5vw;
+             background-color: wheat;
+             border-radius: 2vw;
+             margin-top: 5%;
+             }
 
+           .modal__content {
+             will-change: transform, opacity;
+             position: relative;
+             padding: 2.4rem;
+             background: white;
+             border-radius: 2vw;
+             background-clip: padding-box;
+             box-shadow: 0 12px 15px 0 rgba(0,0,0,0.25);
+             opacity: 0;
+             -webkit-transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+             transition: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+             }
+
+           .modal__content--active {
+             opacity: 1;
+             }
+
+           .modal__close {
+             z-index: 1100;
+             cursor: pointer;
+             }
+
+           .modal__trigger {
+             position: relative;
+             display: inline-block;
+             padding: 1.2rem 2.4rem;
+             color: rgba(0,0,0,0.7);
+             line-height: 1;
+             cursor: grab;
+             background: #ffebee;
+             box-shadow: 0 2px 5px 0 rgba(0,0,0,0.26);
+             -webkit-tap-highlight-color: rgba(0,0,0,0);
+             -webkit-user-select: none;
+             -moz-user-select: none;
+             -ms-user-select: none;
+             user-select: none;
+             -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+             }
+
+           .modal__trigger--active {
+             z-index: 10;
+             }
+
+           .modal__trigger:hover {
+             background: green;
+             }
+
+           #modal__temp {
+             will-change: transform, opacity;
+             position: absolute;
+             top: 0;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             background: white;
+             -webkit-transform: none;
+             transform: none;
+             opacity: 1;
+             -webkit-transition: opacity 0.1s ease-out, -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+             transition: opacity 0.1s ease-out, -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+             transition: opacity 0.1s ease-out, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+             transition: opacity 0.1s ease-out, transform 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+             -webkit-transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+             }
+
+             /*** Demo specific CSS*/
+             body {
+               background: beige;
+               }
+
+             .demo-btns .link {
+               font-size: 20px;
+             }
+
+             .demo-btns .modal__trigger {
+               border-radius: 50%;
+               background-color: black;
+               color: white;
+               font-size: 1.1vw;
+               height: 1.9vw;
+               width: 10vw;
+               display: inline-block;
+               cursor: grab;
+               padding: .3vw;
+               z-index: 99;
+               position: absolute;
+               background-position: top;
+               background-repeat: no-repeat;
+               background-size: contain;
+               text-align: center;
+               }
+
+               /*close X*/
+             .demo-close {
+               position: absolute;
+               top: 0;
+               right: 0;
+               margin: 1.2rem;
+               padding: 0.6rem;
+               background: rgba(0,0,0,0.3);
+               border-radius: 50%;
+               -webkit-transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+               transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+               }
+
+             .demo-close svg {
+               width: 24px;
+               fill: #fff;
+               pointer-events: none;
+               vertical-align: top;
+               }
+
+             .demo-close:hover {
+               background: rgba(0,0,0,0.6);
+               }
+
+             .scroll{
+               margin-top: 2.2%;
+               margin-bottom: .5%;
+               z-index: -1
+               }
 </style>
 
 <body>
@@ -107,140 +251,354 @@ or alternatively, could also make image maps...nahhh-->
   <div class="about">
     Scroll This Way -->
   </div>
-
-  <div id="pin1" class="dot" style="margin-left: 190vw">
-    <div class="pinText">
-      <div><center>&nbsp;&nbsp;<b>1</b></center>
-        <p class="tooltiptext">
-          <span style="font-size: 1.5vw; font-weight: bold; text-align:center">The 3 Gorges Dam</span>
-          <br><br><img src="https://cdn.britannica.com/s:700x500/20/119620-050-AC901996/Yichang-Three-Gorges-Dam-Yangtze-River-China.jpg" height="40%" width="45%">
-          <br><br>
-            The Three Gorges Dam was an extremely controversial construction project that had been initiated in 1994. It was intended to control the flooding of the Yangtze River and generate hydroelectric power to fuel China's rapid development and economic boom. While this dam has achieved these goals of flood control and providing the nation with a new source of "greener" energy, its construction has resulted in the displacement of at least 5 million people. Furthermore, critics have argued that in the long run, the Three Gorges Dam will cease to be productive as silt and sediment accumulation upstream will eventually clog ports, intensity flooding, and thus rendering the Yangtze impassable. Additionally, as engineering limitations will prevent energy from being harnessed efficiently.
-          <br><br>
-            On an environmental scale, the sediment and silt build-up resulting from this dam has damaged and reduced aquatic biodiversity. Additionally, the erosion induced by the rising water from the dam has caused frequent major landslides that has damaged towns and led to further relocation of former residents.
-          <br><br>
-            Consequently, this controversy has prompted artists like Ji Yunfei, and Chen Qiulin to create work in response to the social and environmental issues caused by the Three Gorges Dam.
-        </p>
+  <div class="demo-btns">
+      <div class="buttons">
+          <a href="" data-modal="#modal" class="modal__trigger" style="margin-left: 180vw">1</a>
+          <a href="" data-modal="#modal2" class="modal__trigger" style="margin-left: 290vw">2</a>
+          <a href="" data-modal="#modal3" class="modal__trigger" style="margin-left: 400vw">3</a>
+          <a href="" data-modal="#modal4" class="modal__trigger" style="margin-left: 493vw">4</a>
+          <a href="" data-modal="#modal5" class="modal__trigger" style="margin-left: 560vw">5</a>
+          <a href="" data-modal="#modal6" class="modal__trigger" style="margin-left: 600vw">6</a>
+          <a href="" data-modal="#modal7" class="modal__trigger" style="margin-left: 780vw">7</a>
+          <a href="" data-modal="#modal8" class="modal__trigger" style="margin-left: 920vw">8</a>
+        </div>
+  </div>
+  <!-- Modal-3GD -->
+  <div id="modal" class= "modal modal__bg" role="dialog" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__content">
+        <h1 style="text-align: center">The Three Gorges Dam</h1>
+        <img src="https://cdn.britannica.com/s:700x500/20/119620-050-AC901996/Yichang-Three-Gorges-Dam-Yangtze-River-China.jpg" height="45%" width="45%">
+        <br><br>
+          The Three Gorges Dam was an extremely controversial construction project that had been initiated in 1994. It was intended to control the flooding of the Yangtze River and generate hydroelectric power to fuel China's rapid development and economic boom. While this dam has achieved these goals of flood control and providing the nation with a new source of "greener" energy, its construction has resulted in the displacement of at least 5 million people. Furthermore, critics have argued that in the long run, the Three Gorges Dam will cease to be productive as silt and sediment accumulation upstream will eventually clog ports, intensity flooding, and thus rendering the Yangtze impassable. Additionally, as engineering limitations will prevent energy from being harnessed efficiently.
+        <br><br>
+          On an environmental scale, the sediment and silt build-up resulting from this dam has damaged and reduced aquatic biodiversity. Additionally, the erosion induced by the rising water from the dam has caused frequent major landslides that has damaged towns and led to further relocation of former residents.
+        <br><br>
+          Consequently, this controversy has prompted artists like Ji Yunfei, and Chen Qiulin to create work in response to the social and environmental issues caused by the Three Gorges Dam.
+      </p>
+        <!-- modal close button -->
+        <a href="" class="modal__close demo-close">
+          <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+        </a>
       </div>
     </div>
   </div>
+  <!-- 9th Wave -->
+  <div id="modal2" class="modal modal--align-top modal__bg" role="dialog" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__content">
+        <h1>Cai Guoqiang & <i>The 9th Wave</i></h1>
+          As a artist who cares deeply about the global environment and has international acclaim, Cai Guo Qiang has made many artworks and installations that address the issue of environmental degradation, especially in relation to China. Though his art comes in various media, from gunpowder to ink, his background as the son of a traditional landscape painter has seeped into some of his artwork and shaped his view of the human-nature relationship. This is particularly evident in the piece called in his <i>9th Wave</i> exhibition called <i>Silent Ink</i> (a play on Rachel Carson's <i>Silent Spring</i>) which takes the form as a physical manifestation of 山水画. For this installation, Cai created a black ink pond by excavating the floor of the former power plant where his work would be presented and "filled [this artificial depression] with thousands of gallons of the pitch-black ink used for traditional calligraphy and brush painting" (Schell). To further evoke the sense of 山水画, he piled up the rubble from the excavation to create an impression of the mountains often found in these classical landscape paintings.
+          In this way, <i>Silent Ink </i> draws on aspects of previous cultural traditions and places them on a contemporary scale to reflect on the current environmental reality, which in this case refers to the countless polluted lakes and rivers in China that have become too toxic even for industrial use.
+        <br><br>
+          The piece incorporating 99 sculpted animals placed on a fishing boat, <i>The Ninth Wave</i>, is Cai Guoqiang's response to the tide of 16,000 dead pigs discovered in Shanghai's Huangpu River (in 2013). Outraged by this event, which was just as much a health concern as it was an environmental concern (regarding pollution and waste), Cai was inspired to create this sculpture as the title piece for his exhibition <i>The Ninth Wave</i>. This interactive piece, which had sailed from Cai's hometown, throught the Huangpu River to the exhibition's location in Shanghai is reminiscent of the story of Noah's Ark. It's as though these sick-looking fabricated animals are trying to escape from the reality of current environmental degradation humans have wrought. It is interesting to see that unlike some of his other pieces in this series, which draws on Chinese traditions, this work relates to a concept not isolated to China. In this regard, <i>The Ninth Wave</i> not only shows the impact of globalism in contemporary art (which was mostly absent from traditional 山水画) but also brings up the fact that environmental issues, too, are no longer isolated to certain countries in a globalizing world.
+          Likewise, in <i>The Bund Without Us</i>, Cai used gunpowder ignited on paper and brush to depict a scene showing what Shanghai's riverfront would look like once reclaimed by nature centuries after humans vanish. In addition to rendering buildings on this city's skyline in ruins, the sepia tone and splotches throughout the work created by the use of gunpowder makes this depiction of the future seem to be from the past.
+          With this piece, as with <i>Silent Ink</i>, Cai Guoqiang wanted to "conjure the spirit in literati paintings" and evoke a feeling of nostalgia for a time when "people lived humbly and in harmony with nature." (Schell) Consequently, by recalling aspects of Chinese cultural history, <i>The Bund Without Us</i> sought to raise awareness of environmental problems by inspiring people to think about and compare the current human-nature relationship with that of the past.
+        <br><br>
+          Although this latter piece did not incorporate themes relating to traditional aspects of 山水画, I chose to render it in my scroll as it fit well into the scene with the water gushing from my depiction of the Three Gorges Dam. Coincidentally, This image is accompanied by a series of dead pigs and other forms of pollution to in effort to incorporate some of the environmental and social issues Cai (and other contemporary artists as shown later in the scroll) tackled with their work.   Consequently, this controversy has prompted artists like Ji Yunfei, and Chen Qiulin to create work in response to the social and environmental issues caused by the Three Gorges Dam
 
-  <div id="pin2" class="dot" style="margin-left: 290vw">
-    <div class="pinText">
-      <div class="tooltip" style="text-align: center">&nbsp;&nbsp;<b>2</b>
-        <p class="tooltiptext">
-          <span style="font-size: 1.5vw; font-weight: bold">Cai Guoqiang & <i>The 9th Wave</i></span>
-          <br><br>
-            As a artist who cares deeply about the global environment and has international acclaim, Cai Guo Qiang has made many artworks and installations that address the issue of environmental degradation, especially in relation to China. Though his art comes in various media, from gunpowder to ink, his background as the son of a traditional landscape painter has seeped into some of his artwork and shaped his view of the human-nature relationship. This is particularly evident in the piece called in his <i>9th Wave</i> exhibition called <i>Silent Ink</i> (a play on Rachel Carson's <i>Silent Spring</i>) which takes the form as a physical manifestation of 山水画. For this installation, Cai created a black ink pond by excavating the floor of the former power plant where his work would be presented and "filled [this artificial depression] with thousands of gallons of the pitch-black ink used for traditional calligraphy and brush painting" (Schell). To further evoke the sense of 山水画, he piled up the rubble from the excavation to create an impression of the mountains often found in these classical landscape paintings.
-            In this way, <i>Silent Ink </i> draws on aspects of previous cultural traditions and places them on a contemporary scale to reflect on the current environmental reality, which in this case refers to the countless polluted lakes and rivers in China that have become too toxic even for industrial use.
-          <br><br>
-            The piece incorporating 99 sculpted animals placed on a fishing boat, <i>The Ninth Wave</i>, is Cai Guoqiang's response to the tide of 16,000 dead pigs discovered in Shanghai's Huangpu River (in 2013). Outraged by this event, which was just as much a health concern as it was an environmental concern (regarding pollution and waste), Cai was inspired to create this sculpture as the title piece for his exhibition <i>The Ninth Wave</i>. This interactive piece, which had sailed from Cai's hometown, throught the Huangpu River to the exhibition's location in Shanghai is reminiscent of the story of Noah's Ark. It's as though these sick-looking fabricated animals are trying to escape from the reality of current environmental degradation humans have wrought. It is interesting to see that unlike some of his other pieces in this series, which draws on Chinese traditions, this work relates to a concept not isolated to China. In this regard, <i>The Ninth Wave</i> not only shows the impact of globalism in contemporary art (which was mostly absent from traditional 山水画) but also brings up the fact that environmental issues, too, are no longer isolated to certain countries in a globalizing world.
-            Likewise, in <i>The Bund Without Us</i>, Cai used gunpowder ignited on paper and brush to depict a scene showing what Shanghai's riverfront would look like once reclaimed by nature centuries after humans vanish. In addition to rendering buildings on this city's skyline in ruins, the sepia tone and splotches throughout the work created by the use of gunpowder makes this depiction of the future seem to be from the past.
-            With this piece, as with <i>Silent Ink</i>, Cai Guoqiang wanted to "conjure the spirit in literati paintings" and evoke a feeling of nostalgia for a time when "people lived humbly and in harmony with nature." (Schell) Consequently, by recalling aspects of Chinese cultural history, <i>The Bund Without Us</i> sought to raise awareness of environmental problems by inspiring people to think about and compare the current human-nature relationship with that of the past.
-          <br><br>
-            Although this latter piece did not incorporate themes relating to traditional aspects of 山水画, I chose to render it in my scroll as it fit well into the scene with the water gushing from my depiction of the Three Gorges Dam. Coincidentally, This image is accompanied by a series of dead pigs and other forms of pollution to in effort to incorporate some of the environmental and social issues Cai (and other contemporary artists as shown later in the scroll) tackled with their work.   Consequently, this controversy has prompted artists like Ji Yunfei, and Chen Qiulin to create work in response to the social and environmental issues caused by the Three Gorges Dam
-        </p>
+        <a href="" class="modal__close demo-close">
+          <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+        </a>
+
       </div>
     </div>
   </div>
-
-  <div id="pin2" class="dot" style="margin-left: 493vw">
-    <div class="pinText">
-      <div class="tooltip" style="text-align: center">&nbsp;&nbsp;<b>4</b>
-        <p class="tooltiptext">
-          <span style="font-size: 1.5vw; font-weight: bold">Xu Bing's <i>Phoenix</i></span>
-          <br><br>
-            In 2008, Xu Bing was commissioned to create artwork to decorate the atrium of the new World Financial Center being constructed in Beijing. However, this project took a turn when he noticed the poor working and living conditions at the construction site. The irony that this building, supposedly a symbol of progress and modernity, was surrounded by debris, despair, and poverty revealed the social and environmental costs of China's rapid development. This stark contrast inspired Xu Bing to collaborate with construction workers to sculpt a pair of phoenixes using the materials salvaged from the site, including "demolition debris, steel beams, tools, and remnants of the daily lives of migrant workers" (MASS MoCA). In this way, the sculpture became a commentary on the growing discrepancies and wealth gaps within Chinese society as Xu observed at the construction site (where migrant workers labored to without recognition to build an edifice symbolizing the luxurious lifestyle they could not afford).
-          <br><br>
-            On the other hand, this artwork could also be interpreted as a sign of hope for a better future as the two-fold phoenix of Chinese legend represents unity and good fortune. In this regard, the help of the migrant workers in building this sculpture (and in the construction of the World Financial Center) showed the unity of people necessary to make things possible. Additionally, the use of construction debris could also be seen as a play on this symbolism as it called for the combination (or unity) of scraps and other waste materials to create something new and meaningful. Consequently, when considering the meaning of the phoenixes in relation to the processes involved in the building of Xu Bing's sculpture, this monumental artwork appears to be more than just a critique of social and environmental issues brought by China's rapid progress. In this way, the sculpture also becomes a call for people to work together with each other, and (to some extent) with the environment to bring good fortune.
-          <br><br>
-            It is in this regard that I depicted the phoenix sculpture to be "flying" in this scene with some migrant workers resting and contemplating amongst the debris as the shiny new World Financial Center was being built.
-          <br><br>
-          Unfortunately, by the time the phoenix sculptures had been completed (around 2010), the building developers who commissioned this project decided to back out as the piece did not look flattering and was too politically charged, especially in light of the recent 2008 financial crisis.
-          <br>
-        </p>
+  <!--Chen Qiulin-->
+  <div id="modal3" class="modal modal__bg" role="dialog" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__content">
+        <h1>Chen Qiulin: Photos & Videos</h1>
+        For many years, Chen Qiulin has been exploring and documenting the urbanization occurring in her home-province, Sichuan, through art. Her work focuses on the rapid changes both the Chinese people and landscape have been experiencing in reaction to industrialization, modernization, and the associated materialism. In this manner, Chen's art reveals different aspects of the changing relationship between people and nature. Though using different, and rather modern media, aspects of Chen's artwork are reminiscent of  traditional 山水画. This is evident through her tendency to depict people in her videos (such a as <i>Peach Blossom</i>) and photos (like <i>Tree</i> from the series titled Peppermint ) as small in relation to their larger surroundings, which recalls the concept of people being a part of the nature and the landscape as a whole.
+        <br><br>
+        As someone personally effected by the Three Gorges Dam, half her hometown had been submerged as a result, Chen Qiulin has also explored the social and environmental impact of this controversial project through four videos corresponding with the four phases of construction and united under the common theme of displacement: <i>Rhapsody on Farewell; River, River; Color Lines; and The Garden.</i> Through each of these pieces she conveys changes in her personal feelings toward the Three Gorges Dam as construction happened by depicting scenes of people, including herself, against a background of the destruction caused (Upstream Journal).
+        <br><br>
+        In my scroll, I chose to depicted her photograph <i>I am an Angel No.2 </i> (which is also part of her video <i>Color Lines</i>) as a way to highlight the style of her work and prevailing themes of destruction, displacement and the smallness of human beings in relation to both nature and built landscapes. The placing of this image, behind the man on a float and facing the water was intended to show how Chen Qiulin and her artwork had been influenced by the Three Gorges Dam (which is the source of the water and inundation in this part of my scroll).
+        <!-- modal close button -->
+        <a href="" class="modal__close demo-close">
+          <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+        </a>
       </div>
     </div>
   </div>
-
-  <div id="pin2" class="dot" style="margin-left: 400vw">
-    <div class="pinText">
-      <div class="tooltip" style="text-align: center">&nbsp;&nbsp;<b>3</b>
-        <p class="tooltiptext">
-          <span style="font-size: 1.5vw; font-weight: bold">Chen Qiulin: Photos & Videos</span>
-          <br><br>
-          For many years, Chen Qiulin has been exploring and documenting the urbanization occurring in her home-province, Sichuan, through art. Her work focuses on the rapid changes both the Chinese people and landscape have been experiencing in reaction to industrialization, modernization, and the associated materialism. In this manner, Chen's art reveals different aspects of the changing relationship between people and nature. Though using different, and rather modern media, aspects of Chen's artwork are reminiscent of  traditional 山水画. This is evident through her tendency to depict people in her videos (such a as <i>Peach Blossom</i>) and photos (like <i>Tree</i> from the series titled Peppermint ) as small in relation to their larger surroundings, which recalls the concept of people being a part of the nature and the landscape as a whole.
-          <br><br>
-          As someone personally effected by the Three Gorges Dam, half her hometown had been submerged as a result, Chen Qiulin has also explored the social and environmental impact of this controversial project through four videos corresponding with the four phases of construction and united under the common theme of displacement: <i>Rhapsody on Farewell; River, River; Color Lines; and The Garden.</i> Through each of these pieces she conveys changes in her personal feelings toward the Three Gorges Dam as construction happened by depicting scenes of people, including herself, against a background of the destruction caused (Upstream Journal).
-          <br><br>
-          In my scroll, I chose to depicted her photograph <i>I am an Angel No.2 </i> (which is also part of her video <i>Color Lines</i>) as a way to highlight the style of her work and prevailing themes of destruction, displacement and the smallness of human beings in relation to both nature and built landscapes. The placing of this image, behind the man on a float and facing the water was intended to show how Chen Qiulin and her artwork had been influenced by the Three Gorges Dam (which is the source of the water and inundation in this part of my scroll).
-        </p>
+  <!-- Phoenix -->
+  <div id="modal4" class="modal modal__bg" role="dialog" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__content">
+        <h1>Xu Bing's <i>Phoenix</i></h1>
+          In 2008, Xu Bing was commissioned to create artwork to decorate the atrium of the new World Financial Center being constructed in Beijing. However, this project took a turn when he noticed the poor working and living conditions at the construction site. The irony that this building, supposedly a symbol of progress and modernity, was surrounded by debris, despair, and poverty revealed the social and environmental costs of China's rapid development. This stark contrast inspired Xu Bing to collaborate with construction workers to sculpt a pair of phoenixes using the materials salvaged from the site, including "demolition debris, steel beams, tools, and remnants of the daily lives of migrant workers" (MASS MoCA). In this way, the sculpture became a commentary on the growing discrepancies and wealth gaps within Chinese society as Xu observed at the construction site (where migrant workers labored to without recognition to build an edifice symbolizing the luxurious lifestyle they could not afford).
+        <br><br>
+          On the other hand, this artwork could also be interpreted as a sign of hope for a better future as the two-fold phoenix of Chinese legend represents unity and good fortune. In this regard, the help of the migrant workers in building this sculpture (and in the construction of the World Financial Center) showed the unity of people necessary to make things possible. Additionally, the use of construction debris could also be seen as a play on this symbolism as it called for the combination (or unity) of scraps and other waste materials to create something new and meaningful. Consequently, when considering the meaning of the phoenixes in relation to the processes involved in the building of Xu Bing's sculpture, this monumental artwork appears to be more than just a critique of social and environmental issues brought by China's rapid progress. In this way, the sculpture also becomes a call for people to work together with each other, and (to some extent) with the environment to bring good fortune.
+        <br><br>
+          It is in this regard that I depicted the phoenix sculpture to be "flying" in this scene with some migrant workers resting and contemplating amongst the debris as the shiny new World Financial Center was being built.
+        <br><br>
+        Unfortunately, by the time the phoenix sculptures had been completed (around 2010), the building developers who commissioned this project decided to back out as the piece did not look flattering and was too politically charged, especially in light of the recent 2008 financial crisis.
+        <br>
+        <!-- modal close button -->
+        <a href="" class="modal__close demo-close">
+          <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+        </a>
       </div>
     </div>
   </div>
-
-  <div id="pin2" class="dot" style="margin-left: 560vw">
-    <div class="pinText">
-      <div class="tooltip" style="text-align: center">&nbsp;&nbsp;<b>5</b>
-        <p class="tooltiptext">
-          <span style="font-size: 1.5vw; font-weight: bold">Ji Yunfei & the <i>3 Gorges Dam Migration</i></span>
-          <br><br>
-            Through his paintings, Ji Yunfei has been particularly vocal in condemning the construction of the Three Gorges Dam for the social-environmental problems it has wrought upon the region. This was the main focus of his signature artwork, <i>Three Gorges Dam Migration</i> (2009), which took the form of a 32 feet long scroll. Much like his other works, this piece is based on traditional Chinese landscape paintings, which he uses to "explore the utopian dreams of Chinese history, from past collectivization to new consumerism" (Genocchio). In this regard, his art addresses social and environment issues prevalent in China by evoking nostalgia for a time when nature and human beings lived in harmony. Thus, by presenting contemporary problems in this style, Ji Yunfei's artwork tries to raise awareness by prompting viewers to compare the past with the present and consider current issues in relation the traditional Chinese perception of nature.
-          <br><br>
-            It is in this manner that Ji Yunfei painted  <i>Three Gorges Dam Migration</i> in response to the forced resettlements and miserable conditions minority groups faced in the wake of the dam building. Through its format, this painting is reminiscent of traditional 山水画  with its use of light, translucent colors; incorporation of natural elements like leaves, water, trees, and rocks along with people; and its form as a lengthy scroll surrounded by calligraphic text on both sides. However the content of the composition reveals contemporary problems instead of the peaceful landscapes typically found in 山水画. The scroll is busy with images of people and their belongings both packing and getting ready to leave their home so the dam could be built. Moreover, this jumble of displaced or soon-to-be-displaced individuals and their expressions provide a holistic view of the wide range of local reactions and, in turn, emphasize the trauma of such resettlement projects.
-          <br><br>
-            In this regard, by pointing to the social impacts of this dam, Ji Yunfei's work makes a further point about the differences between past and current nature-human relationships. As exemplified by 山水画, the people of dynastic China (especially the literati) considered themselves to be a part of nature and often sought refuge in the landscape. In the contemporary world, however, people have a more active role in the environment despite their supposed detachment from the natural world. Consequently, reveals how people continue to impact and are, in turn, impacted by the forces of nature regardless of changing perceptions and relationships.
-          <br><br>
-            My rendition of his work in this scroll does not really seem to resemble the images depicted in  <i>Three Gorges Dam Migration</i>. For this, I decided to take a different approach and show the theme of displacement and forced relocation present in his painting. I attempted to show this through drawings of these three people: a little girl and her father carrying what little belongings they have walking towards the unknown, and a person in the bottom of the page sleeping on the floor surrounded by their belongings.
-          </p>
+  <!--Ji Yunfei-->
+  <div id="modal5" class="modal modal__bg" role="dialog" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__content">
+        <h1>Ji Yunfei & the <i>3 Gorges Dam Migration</i></h1>
+          Through his paintings, Ji Yunfei has been particularly vocal in condemning the construction of the Three Gorges Dam for the social-environmental problems it has wrought upon the region. This was the main focus of his signature artwork, <i>Three Gorges Dam Migration</i> (2009), which took the form of a 32 feet long scroll. Much like his other works, this piece is based on traditional Chinese landscape paintings, which he uses to "explore the utopian dreams of Chinese history, from past collectivization to new consumerism" (Genocchio). In this regard, his art addresses social and environment issues prevalent in China by evoking nostalgia for a time when nature and human beings lived in harmony. Thus, by presenting contemporary problems in this style, Ji Yunfei's artwork tries to raise awareness by prompting viewers to compare the past with the present and consider current issues in relation the traditional Chinese perception of nature.
+        <br><br>
+          It is in this manner that Ji Yunfei painted  <i>Three Gorges Dam Migration</i> in response to the forced resettlements and miserable conditions minority groups faced in the wake of the dam building. Through its format, this painting is reminiscent of traditional 山水画  with its use of light, translucent colors; incorporation of natural elements like leaves, water, trees, and rocks along with people; and its form as a lengthy scroll surrounded by calligraphic text on both sides. However the content of the composition reveals contemporary problems instead of the peaceful landscapes typically found in 山水画. The scroll is busy with images of people and their belongings both packing and getting ready to leave their home so the dam could be built. Moreover, this jumble of displaced or soon-to-be-displaced individuals and their expressions provide a holistic view of the wide range of local reactions and, in turn, emphasize the trauma of such resettlement projects.
+        <br><br>
+          In this regard, by pointing to the social impacts of this dam, Ji Yunfei's work makes a further point about the differences between past and current nature-human relationships. As exemplified by 山水画, the people of dynastic China (especially the literati) considered themselves to be a part of nature and often sought refuge in the landscape. In the contemporary world, however, people have a more active role in the environment despite their supposed detachment from the natural world. Consequently, reveals how people continue to impact and are, in turn, impacted by the forces of nature regardless of changing perceptions and relationships.
+        <br><br>
+          My rendition of his work in this scroll does not really seem to resemble the images depicted in  <i>Three Gorges Dam Migration</i>. For this, I decided to take a different approach and show the theme of displacement and forced relocation present in his painting. I attempted to show this through drawings of these three people: a little girl and her father carrying what little belongings they have walking towards the unknown, and a person in the bottom of the page sleeping on the floor surrounded by their belongings.
+          <!-- modal close button -->
+        <a href="" class="modal__close demo-close">
+          <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+        </a>
       </div>
     </div>
   </div>
-
-  <div id="pin2" class="dot" style="margin-left: 600vw">
-    <div class="pinText">
-      <div class="tooltip" style="text-align: center">&nbsp;&nbsp;<b>6</b>
-        <p class="tooltiptext">
-          <span style="font-size: 1.5vw; font-weight: bold">The Dong Qichang Project</span>
+  <!-- Shang Yang -->
+  <div id="modal6" class="modal modal__bg" role="dialog" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__content">
+        <h1>The Dong Qichang Project</h1>
+          In his series called the <i>Dong Qichang Project</i>, Beijing-based contemporary artist Shang Yang incorporates  references/recalls the work of classical 山水画 to call attention to the current environmental crisis by highlighting the changing attitudes and relationships between people and nature. In this regard, the project develops in different phases; one of which incorporates pieces that seem to be master copies the work of well-known traditional painter Dong Qichang. For the other phase(s), Shang Yang applies his own style in emulating the Dong Qichang's 山水画, using mixed media with oil paints to mold traditional landscape pieces to fit into the modern world. In this case, the nature depicted in this phase is jarring, "mottled, no longer a beauty" (Min'an) and devoid of the tranquil comforts often associated with the nature presented by 山水画. Here, nature becomes "a mirror of contemporary people [and society], it has scarred and wrinkled skin just like ours; its fractured pieces suggest the state of humans today" (Min'an). Thus, by juxtaposing the traditional representations of nature with those based on his own style and current environmental attitudes, these different phases of the Dong Qichang Project highlight the drastic change in how humans interact with the natural world. In this regard, Shang Yang presents a series of artwork that contrasts former notions of people being in harmony with nature with the today's endless demand and exploitation of nature. Through this project, hopes to provoke critical thought about the current state of the environment in a way that would not only raise awareness among viewers, but also inspire them to take action to improve conditions (评论:王雪芹：偶然与必然：被选择的董其昌).
           <br><br>
-            In his series called the <i>Dong Qichang Project</i>, Beijing-based contemporary artist Shang Yang incorporates  references/recalls the work of classical 山水画 to call attention to the current environmental crisis by highlighting the changing attitudes and relationships between people and nature. In this regard, the project develops in different phases; one of which incorporates pieces that seem to be master copies the work of well-known traditional painter Dong Qichang. For the other phase(s), Shang Yang applies his own style in emulating the Dong Qichang's 山水画, using mixed media with oil paints to mold traditional landscape pieces to fit into the modern world. In this case, the nature depicted in this phase is jarring, "mottled, no longer a beauty" (Min'an) and devoid of the tranquil comforts often associated with the nature presented by 山水画. Here, nature becomes "a mirror of contemporary people [and society], it has scarred and wrinkled skin just like ours; its fractured pieces suggest the state of humans today" (Min'an). Thus, by juxtaposing the traditional representations of nature with those based on his own style and current environmental attitudes, these different phases of the Dong Qichang Project highlight the drastic change in how humans interact with the natural world. In this regard, Shang Yang presents a series of artwork that contrasts former notions of people being in harmony with nature with the today's endless demand and exploitation of nature. Through this project, hopes to provoke critical thought about the current state of the environment in a way that would not only raise awareness among viewers, but also inspire them to take action to improve conditions (评论:王雪芹：偶然与必然：被选择的董其昌).
-            <br><br>
-              In my rendition of the Dong Qichang Project on this virtual scroll, I switched to using a different set of brushes to simulate the textures, and consequently, the more jarring effects presented in Shang Yang's multi-media work.
-        </p>
+            In my rendition of the Dong Qichang Project on this virtual scroll, I switched to using a different set of brushes to simulate the textures, and consequently, the more jarring effects presented in Shang Yang's multi-media work.
+        <!-- modal close button -->
+        <a href="" class="modal__close demo-close">
+          <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+        </a>
       </div>
     </div>
   </div>
-
-  <div id="pin2" class="dot" style="margin-left: 780vw">
-    <div class="pinText">
-      <div class="tooltip" style="text-align: center">&nbsp;&nbsp;<b>7</b>
-        <p class="tooltiptext">
-          <span style="font-size: 1.5vw; font-weight: bold">Yang Yongliang: Painting or Photography?</span>
-          <br><br>
-            In a manner similar to that of Chen Qiulin, Yang Yongliang's artwork incorporates photographs that reveal the changes caused by China's accelerated development and urbanization, especially in his hometown Shanghai. However his approach is very different from that Chen and is, instead, rather reminiscent of Xu Bing's <i>Background Story</i>. This is evident in pieces such as <i>View of the Tide</i>, which initially appears to be a typical rendition of 山水画 with monochromatic trees, bodies of water, and mountains shrouded in mist on a handscroll. Upon closer examination, it becomes evident that Yang did not use the traditional materials of ink and paper, but rather a collection of edited photos he took to create this piece. In this way, his process further reflects experiences faced in a rapidly developing China in the digital, contemporary period. To make work like <i>View of the Tide</i>, Yang edited and layered select photographs he had taken of urban landscapes (such as buildings and demolition sites) in a way that took the form of the natural landscapes typical of 山水画. Mountains, for example, were composed of layers and layers of photos of various buildings  and what seemed to be trees from afar are actually power towers. Through this, Yang shows how the landscape has transformed from natural elements of bygone days to the familiar scenes of modern anthropogenic life filled with "concrete towers...and the atmospheric haze of pollution" (Carter).
-          <br><br>
-            Consequently, through this adaptation and reinterpretation of traditional art through a modern lens using technology, Yang Yongliang has created work that preserves this classical style of painting and reflects the "trajectory of development in a typical Chinese city" (Noey) like Shanghai. Essentially, by "painting" with digital photography, he is simultaneously making a record of reality and critical response to the rapid urbanization that has demolished both the more recent, physical past and the conceptual past of Chinese cultural and societal history embedded within the towns and cities.
-          <br><br>
-            In representing Yang Yongliang's artwork on my scroll, I wanted to paint a part of the landscape by compiling and layering photographs of urban elements. However, as the process was unfamiliar to me and seemed rather time consuming, I decided to use images of his work that I found to build this specific part of the landscape. Through this mini-emulation of Yang's work, I had to apply a similar process of photo-editing (namely erasing the background and the edges) and layering (and some more light erasing) to connect the drawn part of my scroll with this portion.
-          </p>
+  <!--Yang Yongliang-->
+  <div id="modal7" class="modal modal__bg" role="dialog" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__content">
+        <h1>Yang Yongliang: Painting or Photography?</h1>
+        In a manner similar to that of Chen Qiulin, Yang Yongliang's artwork incorporates photographs that reveal the changes caused by China's accelerated development and urbanization, especially in his hometown Shanghai. However his approach is very different from that Chen and is, instead, rather reminiscent of Xu Bing's <i>Background Story</i>. This is evident in pieces such as <i>View of the Tide</i>, which initially appears to be a typical rendition of 山水画 with monochromatic trees, bodies of water, and mountains shrouded in mist on a handscroll. Upon closer examination, it becomes evident that Yang did not use the traditional materials of ink and paper, but rather a collection of edited photos he took to create this piece. In this way, his process further reflects experiences faced in a rapidly developing China in the digital, contemporary period. To make work like <i>View of the Tide</i>, Yang edited and layered select photographs he had taken of urban landscapes (such as buildings and demolition sites) in a way that took the form of the natural landscapes typical of 山水画. Mountains, for example, were composed of layers and layers of photos of various buildings  and what seemed to be trees from afar are actually power towers. Through this, Yang shows how the landscape has transformed from natural elements of bygone days to the familiar scenes of modern anthropogenic life filled with "concrete towers...and the atmospheric haze of pollution" (Carter).
+      <br><br>
+        Consequently, through this adaptation and reinterpretation of traditional art through a modern lens using technology, Yang Yongliang has created work that preserves this classical style of painting and reflects the "trajectory of development in a typical Chinese city" (Noey) like Shanghai. Essentially, by "painting" with digital photography, he is simultaneously making a record of reality and critical response to the rapid urbanization that has demolished both the more recent, physical past and the conceptual past of Chinese cultural and societal history embedded within the towns and cities.
+      <br><br>
+        In representing Yang Yongliang's artwork on my scroll, I wanted to paint a part of the landscape by compiling and layering photographs of urban elements. However, as the process was unfamiliar to me and seemed rather time consuming, I decided to use images of his work that I found to build this specific part of the landscape. Through this mini-emulation of Yang's work, I had to apply a similar process of photo-editing (namely erasing the background and the edges) and layering (and some more light erasing) to connect the drawn part of my scroll with this portion.
+          <!-- modal close button -->
+        <a href="" class="modal__close demo-close">
+          <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+        </a>
       </div>
     </div>
   </div>
-
-  <div id="pin2" class="dot" style="margin-left: 930vw">
-    <div class="pinText">
-      <div class="tooltip" style="text-align: center">&nbsp;&nbsp;<b>8</b>
-        <p class="tooltiptext">
-          <span style="font-size: 1.5vw; font-weight: bold">The 3 Gorges Dam</span>
-          <br><br>
-            At first, it seems that Xu Bing's piece <i>Background Story: A New Approach to Landscape Painting</i> is yet another master copy of  "<i>Dwelling in the Fuchun Mountains</i> by Huang Gongwang, one of the Four Yuan Masters" ("Xu Bing: Background Story: A New Approach to Landscape Painting"). However, upon closer look, it becomes clear that this piece was not created with paper and ink but rather on a light box. On the other side of this work, it is revealed that the "painting" seen in the front is actually an illusion created by the "hundreds of LED lights and the dried grasses, plastic bags, sticks, rocks, tape, and all manner of detritus that cast the shadows and create the shapes that depict the painting" ("Xu Bing..."). This use of various materials to create <i>Background Story</i> is also reminiscent of his use of scrap materials and debris in the construction of his phoenix sculpture. In this regard, the illusion of a typical 山水画 created by various plants and debris evokes the traditional harmonious relationship people had with nature. Thus, it seems that, Xu Bing, much like Yang Yongliang, is exploring a prominent part of China's cultural history with a different materials and a new approach. In this case, he appears to associate environmental issues, such as pollution, with the a detachment of the people from the roots of their past.
-            Consequently, by touching on the tradition of 山水画, Xu Bing's <i>Background Story</i>  attempts to reclaim and connect with the past in effort to remind people of their heritage and the deep cultural connections that existed between humans and nature in China.
-          <br><br>
-            With this final scene, I wanted to depict a version of Xu Bing's light-box piece. However, as I wanted the scroll to have some sense of unity despite the various styles, "brushes", and scenes, I ended up making a rendition of Huang Gongwang's <i>Dwelling in the Fuchun Mountain</i> that Xu's contemporary artwork was based on. In this way, by having the final part of the scroll appear in the traditional 山水画 style I incorporated at the beginning, I hope this piece reflects the circularity and connectivity of the world discussed in early Chinese philosophy.
-        </p>
+  <!-- Xu Bing -->
+  <div id="modal8" class="modal modal__bg" role="dialog" aria-hidden="true">
+    <div class="modal__dialog">
+      <div class="modal__content">
+        <h1>Behind the Scenes</h1>
+        At first, it seems that Xu Bing's piece <i>Background Story: A New Approach to Landscape Painting</i> is yet another master copy of  "<i>Dwelling in the Fuchun Mountains</i> by Huang Gongwang, one of the Four Yuan Masters" ("Xu Bing: Background Story: A New Approach to Landscape Painting"). However, upon closer look, it becomes clear that this piece was not created with paper and ink but rather on a light box. On the other side of this work, it is revealed that the "painting" seen in the front is actually an illusion created by the "hundreds of LED lights and the dried grasses, plastic bags, sticks, rocks, tape, and all manner of detritus that cast the shadows and create the shapes that depict the painting" ("Xu Bing..."). This use of various materials to create <i>Background Story</i> is also reminiscent of his use of scrap materials and debris in the construction of his phoenix sculpture. In this regard, the illusion of a typical 山水画 created by various plants and debris evokes the traditional harmonious relationship people had with nature. Thus, it seems that, Xu Bing, much like Yang Yongliang, is exploring a prominent part of China's cultural history with a different materials and a new approach. In this case, he appears to associate environmental issues, such as pollution, with the a detachment of the people from the roots of their past.
+        Consequently, by touching on the tradition of 山水画, Xu Bing's <i>Background Story</i>  attempts to reclaim and connect with the past in effort to remind people of their heritage and the deep cultural connections that existed between humans and nature in China.
+      <br><br>
+        With this final scene, I wanted to depict a version of Xu Bing's light-box piece. However, as I wanted the scroll to have some sense of unity despite the various styles, "brushes", and scenes, I ended up making a rendition of Huang Gongwang's <i>Dwelling in the Fuchun Mountain</i> that Xu's contemporary artwork was based on. In this way, by having the final part of the scroll appear in the traditional 山水画 style I incorporated at the beginning, I hope this piece reflects the circularity and connectivity of the world discussed in early Chinese philosophy.
+        <!-- modal close button -->
+        <a href="" class="modal__close demo-close">
+          <svg class="" viewBox="0 0 24 24"><path d="M19 6.41l-1.41-1.41-5.59 5.59-5.59-5.59-1.41 1.41 5.59 5.59-5.59 5.59 1.41 1.41 5.59-5.59 5.59 5.59 1.41-1.41-5.59-5.59z"/><path d="M0 0h24v24h-24z" fill="none"/></svg>
+        </a>
       </div>
     </div>
   </div>
+  </body>
 
-    </body>
+  <script>
+    var Modal = (function() {
+
+      var trigger = $qsa('.modal__trigger'); // what you click to activate the modal
+      var modals = $qsa('.modal'); // the entire modal (takes up entire window)
+      var modalsbg = $qsa('.modal__bg'); // the entire modal (takes up entire window)
+      var content = $qsa('.modal__content'); // the inner content of the modal
+      var closers = $qsa('.modal__close'); // an element used to close the modal
+      var w = window;
+      var isOpen = false;
+      var contentDelay = 400; // duration after you click the button and wait for the content to show
+      var len = trigger.length;
+
+      // make it easier for yourself by not having to type as much to select an element
+    function $qsa(el) {
+    return document.querySelectorAll(el);
+    }
+
+    var getId = function(event) {
+
+    event.preventDefault();
+    var self = this;
+    // get the value of the data-modal attribute from the button
+    var modalId = self.dataset.modal;
+    var len = modalId.length;
+    // remove the '#' from the string
+    var modalIdTrimmed = modalId.substring(1, len);
+    // select the modal we want to activate
+    var modal = document.getElementById(modalIdTrimmed);
+    // execute function that creates the temporary expanding div
+    makeDiv(self, modal);
+    };
+
+    var makeDiv = function(self, modal) {
+
+    var fakediv = document.getElementById('modal__temp');
+
+    /**
+     * if there isn't a 'fakediv', create one and append it to the button that was
+     * clicked. after that execute the function 'moveTrig' which handles the animations.
+     */
+
+    if (fakediv === null) {
+      var div = document.createElement('div');
+      div.id = 'modal__temp';
+      self.appendChild(div);
+      moveTrig(self, modal, div);
+    }
+    };
+
+    var moveTrig = function(trig, modal, div) {
+    var trigProps = trig.getBoundingClientRect();
+    var m = modal;
+    var mProps = m.querySelector('.modal__content').getBoundingClientRect();
+    var transX, transY, scaleX, scaleY;
+    var xc = w.innerWidth / 2;
+    var yc = w.innerHeight / 2;
+
+    // this class increases z-index value so the button goes overtop the other buttons
+    trig.classList.add('modal__trigger--active');
+
+    // these values are used for scale the temporary div to the same size as the modal
+    scaleX = mProps.width / trigProps.width;
+    scaleY = mProps.height / trigProps.height;
+
+    scaleX = scaleX.toFixed(3); // round to 3 decimal places
+    scaleY = scaleY.toFixed(3);
+
+
+    // these values are used to move the button to the center of the window
+    transX = Math.round(xc - trigProps.left - trigProps.width / 2);
+    transY = Math.round(yc - trigProps.top - trigProps.height / 2);
+
+    // if the modal is aligned to the top then move the button to the center-y of the modal instead of the window
+    if (m.classList.contains('modal--align-top')) {
+      transY = Math.round(mProps.height / 2 + mProps.top - trigProps.top - trigProps.height / 2);
+    }
+
+
+    // translate button to center of screen
+    trig.style.transform = 'translate(' + transX + 'px, ' + transY + 'px)';
+    trig.style.webkitTransform = 'translate(' + transX + 'px, ' + transY + 'px)';
+    // expand temporary div to the same size as the modal
+    div.style.transform = 'scale(' + scaleX + ',' + scaleY + ')';
+    div.style.webkitTransform = 'scale(' + scaleX + ',' + scaleY + ')';
+
+
+    window.setTimeout(function() {
+      window.requestAnimationFrame(function() {
+        open(m, div);
+      });
+    }, contentDelay);
+    };
+
+    var open = function(m, div) {
+
+    if (!isOpen) {
+      // select the content inside the modal
+      var content = m.querySelector('.modal__content');
+      // reveal the modal
+      m.classList.add('modal--active');
+      // reveal the modal content
+      content.classList.add('modal__content--active');
+
+      /**
+       * when the modal content is finished transitioning, fadeout the temporary
+       * expanding div so when the window resizes it isn't visible ( it doesn't
+       * move with the window).
+       */
+
+      content.addEventListener('transitionend', hideDiv, false);
+
+      isOpen = true;
+    }
+
+    function hideDiv() {
+      // fadeout div so that it can't be seen when the window is resized
+      div.style.opacity = '0';
+      content.removeEventListener('transitionend', hideDiv, false);
+    }
+    };
+
+    var close = function(event) {
+
+    event.preventDefault();
+    event.stopImmediatePropagation();
+
+    var target = event.target;
+    var div = document.getElementById('modal__temp');
+
+    /**
+     * make sure the modal__bg or modal__close was clicked, we don't want to be able to click
+     * inside the modal and have it close.
+     */
+
+    if (isOpen && target.classList.contains('modal__bg') || target.classList.contains('modal__close')) {
+
+      // make the hidden div visible again and remove the transforms so it scales back to its original size
+      div.style.opacity = '1';
+      div.removeAttribute('style');
+
+      /**
+      * iterate through the modals and modal contents and triggers to remove their active classes.
+      * remove the inline css from the trigger to move it back into its original position.
+      */
+
+      for (var i = 0; i < len; i++) {
+        modals[i].classList.remove('modal--active');
+        content[i].classList.remove('modal__content--active');
+        trigger[i].style.transform = 'none';
+        trigger[i].style.webkitTransform = 'none';
+        trigger[i].classList.remove('modal__trigger--active');
+      }
+
+      // when the temporary div is opacity:1 again, we want to remove it from the dom
+      div.addEventListener('transitionend', removeDiv, false);
+
+      isOpen = false;
+
+    }
+
+    function removeDiv() {
+      setTimeout(function() {
+        window.requestAnimationFrame(function() {
+          // remove the temp div from the dom with a slight delay so the animation looks good
+          div.remove();
+        });
+      }, contentDelay - 50);
+    }};
+
+    var bindActions = function() {
+    for (var i = 0; i < len; i++) {
+      trigger[i].addEventListener('click', getId, false);
+      closers[i].addEventListener('click', close, false);
+      modalsbg[i].addEventListener('click', close, false);
+      }
+    };
+
+    var init = function() {
+    bindActions();
+    };
+
+    return {
+    init: init
+    };
+
+    }());
+
+    Modal.init();
+  </script> <!--Modal Box-->
+
 </html>
