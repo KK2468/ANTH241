@@ -28,6 +28,7 @@
 
   a:hover {
     color: lightgray;
+    border: dotted 1px black;
     text-decoration: none;
     }
 
@@ -59,7 +60,6 @@
     font-size: 1.35vw;
     margin-left: 6vw;
     margin-right: 7.5vw;
-
     }
 
   .parallax {
@@ -90,19 +90,39 @@
     font-size: 1.75vw;
     }
 
-  path {
-  fill: transparent;
-  }
+    .accordion {
+      background-color:snow;
+      color: black;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.3vw;
+      transition: 0.4s;
+      }
 
-  text {
-  fill: black;
-  }
+    .active, .accordion:hover {
+      background-color: wheat;
+      }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: transparent;
+      overflow: hidden;
+      font-size: 1.3vw;
+      margin-left: 8vw;
+      margin-right: 10vw;
+      }
 
 </style>
 
 <body>
   <div class="topnav">
     <nav>
+    <br><b>Menu</b><br>
     <br><a href= "#top">Top</a>
     <br><a href = "#H">Harmony</a>
     <br><a href = "#M">Mirrored</a>
@@ -165,8 +185,40 @@
     </p>
     <p>
       Back on the main page, you will find an incredibly long image. This was intended to simulate the effect of 山水画 and tell the story of the changing human-nature relationship in China as told by the work of various contemporary artists and the social-environmental concerns they addressed. As you scroll, you will find numbered circles on either the top or the bottom of the image. Be sure to click on them as they will provide further descriptions of the contemporary artwork and how the drawings rendered on my digital scroll relate!
+      <br><br>
+      Note: In some cases, you will need to scroll to read the whole text when hovering over the black circles/ovals on the bottom. If it is difficult to scroll in the pop-up, try shifting the page to the left...
     </p>
   </div>
+  <br><br>
+  <button class="accordion">Works Cited</button>
+    <div class="panel">
+      <p>“Arts of Ancient China, from the Bronze Age to the Golden Age.” <i>East Asian Art Program at Harvard University,</i>
+	       <u>eaa.fas.harvard.edu/arts-ancient-china-bronze-age-golden-age.</u></p>
+         <br>
+      <p>Augustin, Birgitta. “Daoism and Daoist Art.” <i>In Heilbrunn Timeline of Art History.</i> New York: The Metropolitan Museum of Art, 2000–. u>http://www.metmuseum.org/toah/hd/daoi/hd_daoi.htm</u> (December 2011)</p>
+        <br>
+      <p>“Contemplating Nature: Chinese and Korean Botanical Paintings.” <i>East Asian Art Program at Harvard University</i>, 2015,	<u>eaa.fas.harvard.edu/contemplating-nature-chinese-and-korean-botanical-paintings.</u></p>
+        <br>
+      <p>Department of Asian Art. “Landscape Painting in Chinese Art.” <i>In Heilbrunn Timeline of Art History.</i>. New York: The Metropolitan Museum of Art, 2000–. <u>http://www.metmuseum.org/toah/hd/clpg/hd_clpg.htm</u> (October 2004)</p>
+        <br>
+      <p>Department of Asian Art. “Nature in Chinese Culture.” <i>In Heilbrunn Timeline of Art History.</i> New York: The
+	       Metropolitan Museum of Art, 2000–. http://www.metmuseum.org/toah/hd/cnat/hd_cnat.htm (October 2004)</p>
+        <br>
+      <p>“East Asian Buddhist Art.” <i>East Asian Art Program at Harvard University</i>, <u>eaa.fas.harvard.edu/east-asian-buddhist-art.</u></p>
+        <br>
+      <p>Kim, Hae Yeun. “East Asian Cultural Exchange in Tiger and Dragon Paintings.” <i>In Heilbrunn Timeline of Art History.</i>. New York: The Metropolitan Museum of Art, 2000–. <u>http://www.metmuseum.org/toah/hd/tidra/hd_tidra.htm</u> (October 2016)</p>
+        <br>
+      <p>“Literati: Scholars and Scholars' Objects in Chinese and Korean Paintings.” <i>East Asian Art Program at Harvard University</i>, 2016, <u>eaa.fas.harvard.edu/literati-scholars-and-scholars’-objects-chinese-and-korean-paintings</u>.</p>
+        <br>
+      <p>“Mountains and Water: Landscape Paintings from China and Korea.”<i>East Asian Art Program at Harvard University</i>, <u>eaa.fas.harvard.edu/gallery-2600-east-asian-art.</u></p>
+        <br>
+      <p>“‘The Perfection of Nature’, ‘Identification with Nature.’” <i>How to Read Chinese Paintings</i>, by Maxwell K. Hearn, Metropolitan Museum of Art, 2008, pp. 68–74.</p>
+        <br>
+      <p>Turner, Matthew. “Classical Chinese Landscape Painting and the Aesthetic Appreciation of Nature.” <i>The Journal of Aesthetic Education</i>, vol. 43, no. 1, 2009, pp. 106–121. JSTOR, www.jstor.org/stable/40263708. Accessed 28 Feb. 2020.</p>
+        <br>
+      <p>Wenhui Hou. “Reflections on Chinese Traditional Ideas of Nature.” <i>Environmental History</i>, vol. 2, no. 4, 1997, pp. 482–493. <i>JSTOR</i>,<u>www.jstor.org/stable/3985610.</u> Accessed 28 Feb. 2020.</p>
+        <br>
+      </div>
   <br><br><br><br>
   <div class="bottomnav">
     <a href="ANTH241 Test.html">Back to Main</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -175,3 +227,22 @@
   </div>
   <br><br><br>
 </body>
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+</script>
+</html>
